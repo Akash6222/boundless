@@ -461,7 +461,7 @@ install_rust_deps() {
     # Install cargo-risczero
     if ! command_exists cargo-risczero; then
         info "Installing cargo-risczero..."
-        cargo install cargo-risczero >> "$LOG_FILE" 2>&1 || {
+        cargo install cargo-binstall && cargo binstall cargo-risczero && rzup install >> "$LOG_FILE" 2>&1 || {
             error "Failed to install cargo-risczero"
             exit $EXIT_DEPENDENCY_FAILED
         }
